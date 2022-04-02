@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    font-family: Nunito, sans-serif;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ideas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25em;
+}
+
+.idea {
+    border: 1px solid black;
+    width: min(500px, 50vw);
+    padding: 1em;
+}
+
+.idea#new {
+    user-select: none;
+    cursor: pointer;
+    font-size: 1.75em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+}
+
+.idea__title {
+    font-size: 1.5em;
+}
+
+.ideas-heading {
+    font-size: 2em;
+    width: min(500px, 50vw);
+    margin: 40px 0;
+    font-weight: bold;
+}
+
+.add-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    transition: transform 500ms linear;
+}
+
+.add-form > * {
+    padding: .25em;
+    width: min(500px, 50vw);
+}
+
+.add-form > input {
+    font-size: 1.1em;
+}
+
+.add-form > textarea {
+    height: 200px;
+}
+
+.add-form > button {
+    cursor: pointer;
+    height: 3em;
+    background: none;
+    border: 1px solid black;
+}

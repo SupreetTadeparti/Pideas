@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Ideas</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ideas-heading">Ideas</div>
+      <div class="ideas">
+        <div class="idea" id="new">+</div>
+        <form class="add-form hidden">
+          <input type="text" name="title" placeholder="Title" />
+          <textarea name="description" placeholder="Description"></textarea>
+          <button type="submit">Add Idea</button>
+        </form>
+        <% for (const idea of data) { %>
+        <div class="idea">
+          <div class="idea__title"><%= idea.title %></div>
+          <div class="idea__description"><%= idea.description %></div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+    <script>
+      const newBtn = document.getElementById("new");
+      const addForm = document.querySelector(".add-form");
+
+      newBtn.addEventListener("click", () => {
+        addForm.classList.toggle("hidden");
+      });
+
+      addForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        await fetch("http://localhost:3000/new-idea", {
+          method: "post",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title: addForm.title.value,
+            description: addForm.description.value,
+          }),
+        });
+        location.reload();
+      });
+    </script>
+  </body>
+</html>
