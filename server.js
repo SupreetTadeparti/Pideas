@@ -15,7 +15,7 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-mongoose.connect("mongodb://localhost/db");
+mongoose.connect(process.env.DB_URL);
 
 app.get("/", async (_req, res) => {
   const items = await Item.find({});
