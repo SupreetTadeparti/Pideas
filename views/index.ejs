@@ -35,7 +35,7 @@
 
       addForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        await fetch("http://localhost:3000/new-idea", {
+        await fetch("https://pideas.herokuapp.com/new-idea", {
           method: "post",
           headers: {
             Accept: "application/json",
